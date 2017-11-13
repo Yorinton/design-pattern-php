@@ -19,4 +19,9 @@ class DesignPatternTest extends TestCase
         $client->display();
         $this->assertTrue(true);
     }
+
+    public function testGetEncoding()
+    {
+        dd(mb_internal_encoding());
+    }
 }
