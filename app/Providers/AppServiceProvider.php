@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use DesignPattern\Repository\Pattern3\TodoItemRepository;
+use DesignPattern\Repository\TodoItemRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            TodoItemRepositoryInterface::class,
+            TodoItemRepository::class
+        );
     }
 }
