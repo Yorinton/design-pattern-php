@@ -28,12 +28,12 @@ class ExampleTest extends TestCase
 
     public function testForeachNoReference()
     {
-        $arr2 = array(3,4,5,6);
+        $arr2 = array(1,2,3,4);
         //参照ではないため、元の$arr3の値は変わらない
         foreach($arr2 as $value){
-            echo "\n".$value * 2 ."\n";
+            $arr_mapped[] = $value * 2;
         }
-        var_dump($arr2);
+        dd($arr_mapped);
         $this->assertTrue(true);
     }
 
@@ -47,6 +47,16 @@ class ExampleTest extends TestCase
         },$arr3);
 
         var_dump($arr3);
+        $this->assertTrue(true);
+    }
+
+    //配列を文字列型にキャストできるかのテスト -> エラーになる
+    public function testCastFromArrayToString()
+    {
+        $arr = ['a' => 'Tokyo','b' => 'Nagoya','c' => 'Hakata'];
+        $str = (string)$arr;
+
+        echo $str;
         $this->assertTrue(true);
     }
 }
